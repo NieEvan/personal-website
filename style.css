@@ -1,0 +1,523 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* .body {
+    display: flex;
+    flex-direction: column;
+} */
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0% 2%;
+    margin: 2% 2%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 1000;
+    color: black;
+    text-decoration: none;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 16px;
+    color: black;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 0rem 3rem;
+    padding: 0.5rem 2rem;
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: 0.3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+
+.hero {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100ch;
+    min-height: 100vh;
+    padding: 0% 0%;
+}
+
+.hero .rotating_text {
+    transform-style: preserve-3d;
+    animation: animate 7s linear infinite;
+    width: 50%;
+    float: left;
+    padding: 0% 10%;
+}
+
+@keyframes animate {
+    0% {
+        transform: perspective(1000px) rotateX(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateX(360deg);
+    }
+}
+
+.hero .rotating_text span {
+    position: absolute;
+    color: black;
+    font-size: 4em;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    white-space: nowrap;
+    transform-style: preserve-3d;
+    transform: rotateX(calc(var(--i) * 120deg)) translateZ(100px);
+
+}
+
+.hero .subtext {
+    width: 50%;
+    float: right;
+    padding: 10% 10%;
+    /* background: pink; */
+    border-left: 1px solid black 
+}
+
+/* Page 2 */
+.page2 {
+    position: static;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: black;
+    overflow: hidden;
+}
+
+
+.upper-page {
+    display: flex;
+    height: 80vh;
+    width: 95vw;
+}
+
+
+.intro {
+    width: 80vw;
+    padding: 10% 5% 0% 10%;
+}
+
+.intro-title {
+    font-family: 'Montserrat';
+    font-size: 3.2rem;
+    margin-bottom: 2vw;
+    color: white;
+}
+
+.intro-text {
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+    color: white;
+}
+
+
+.bentobox {
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+    padding-top: 5%;
+    margin: 0 0em;
+    display: flex;
+    gap: 1em; 
+}
+
+.bentobox .row {
+    gap: 1em;
+}
+
+.row-1 {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.row-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.row-3 {
+    flex: 1.5;
+    display: flex;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.6) url(gradient-bg.avif);
+    background-size: cover;
+    background-blend-mode: multiply;
+
+}
+
+.col:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.1) url(gradient-bg.avif);
+    background-size: cover;
+    background-blend-mode: multiply;
+    border: 2px solid white;
+    transition: 0.3s ease;
+}
+
+.col-1 {
+    border-radius: 1em;
+    flex: 2;
+    display: flex;
+}
+
+.col-2 {
+    border-radius: 1em;
+    flex: 1;
+    display: flex;
+}
+
+.box {
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    flex: 1;
+    display: flex;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.6) url(gradient-bg.avif);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.1) url(gradient-bg.avif);
+    background-size: cover;
+    background-blend-mode: multiply;
+    border: 2px solid white;
+    transition: 0.3s ease;
+}
+
+.col span{
+    margin: 2em;
+    text-align: center;
+}
+
+.box span{
+    margin: 2em;
+    text-align: center;
+}
+
+@media(max-width:1024px) {
+    .bentobox {
+        flex-direction: column;
+    }
+
+    .row {
+        flex-direction: row;
+    }
+}
+
+@media(max-width:650px) {
+    .bentobox {
+        max-width: 900px;
+        max-height: 550px;
+        width: 95%;
+        gap: 0.7em;
+    }
+    .bentobox .row {
+        gap: 0.7em;
+    }
+}
+
+.box-text {
+    font-size: 20px;
+    color: white;
+}
+
+
+.scroll {
+    position: static;
+    display: flex;
+    width: 100%;
+    height: 15vh;
+    bottom: 0;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+    padding: 0 6 0 0;
+}
+
+.scroll div {
+    white-space: nowrap;
+    animation: slide1 var(--t) linear infinite;
+    animation-delay: calc(var(--t) * -1);
+    transition: 0.5s ease;
+}
+
+.scroll div:nth-child(2){
+    animation: slide2 var(--t) linear infinite;
+    animation-delay: calc(var(--t) / -2);
+    transition: 0.5s ease;
+}
+
+.scroll:hover div{
+    animation-play-state: paused;
+}
+
+.scroll:hover div:nth-child(2){
+    animation-play-state: paused;
+}
+
+.scroll div span {
+    display: inline-flex;
+    font-family: 'Montserrat';
+    font-size: 100px;
+    color: black;
+    height: 50px;
+    margin: 0 0.5em;
+    transition: 0.5s;
+}
+
+@keyframes slide1 {
+    0%
+    {
+      transform: translateX(100%);
+    }
+    100% 
+    {
+      transform: translateX(-100%);
+    }
+}
+
+@keyframes slide2 {
+    0%
+    {
+      transform: translateX(0%);
+    }
+    100% 
+    {
+      transform: translateX(-200%);
+    }
+}
+
+.page3 {
+    position: static;
+}
+
+.page3-hero-text {
+    padding: 10%;
+}
+
+.page3-hero-text h1 {
+    font-size: 8rem;
+    padding-bottom: 10vh;
+}
+
+.page3-hero-text p {
+    font-size: 1.2rem;
+    margin-right: 37%;
+}
+
+@media(max-width:1024px) {
+    .page3-hero-text h1 {
+        font-size: 4rem;
+    }
+    .page3-hero-text p {
+        font-size: 1rem;
+    }
+}
+.sishk {
+    padding: 0 10%;
+}
+
+.sis-text {
+    text-align: left;
+}
+
+.sishk-text h1 {
+    font-size: 5rem;
+}
+
+.sishk-text p {
+    font-size: 2rem;
+}
+
+.sishk-img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sishk-sub {
+    width: 30vw;
+}
+
+.sishk-main {
+    width: 50vw;
+    padding-right: 10%;
+}
+
+.sishk {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5% 10%;
+}
+
+.scie {
+    padding: 5% 10% 10% 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.scie-text {
+    text-align: right;
+}
+
+.scie-text h1 {
+    font-size: 5em;
+}
+
+.scie-text p {
+    font-size: 2rem;
+}
+
+.scie-img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scie-sub {
+    width: 45vw;
+}
+
+.scie-main {
+    width: 45vw;
+    padding-right: 10%;
+}
+
+@media(max-width:1024px) {
+    .scie-text h1 {
+        font-size: 3rem;
+    }
+    
+    .sishk-text h1 {
+        font-size: 3rem;
+    }
+
+    .scie-text p {
+        font-size: 1rem;
+        padding-left: 50%;
+    }
+
+    .sishk-text p {
+        font-size: 1rem;
+        padding-right: 50%;
+    }
+}
+
+.page3 img:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+
+.footer {
+    position: static;
+    display: flex;
+    background: black;
+    height: 100%;
+}
+
+.footer-logo {
+    display: flex;
+    color: white;
+    font-size: 3rem;
+    margin: 4%;
+    flex-direction: column;
+}
+
+.footer-logo img {
+    width: 13%;
+    transition: 0.2s;
+}
+
+
+.footer-pages {
+    padding: 4% 10%;
+    width: 60%;
+    height: 80%;
+    border-right: 1px solid white;
+}
+
+.footer-pages a {
+    color: white;
+    position: relative;
+    text-decoration: none;
+    margin: 8%;
+    transition: 0.2s;
+    content: "";
+    align-content: left;
+}
+
+.footer-pages a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+}
+
+.footer-pages a:hover::before {
+    width: 100%;
+}
+
+
+.footer-smicons img:hover {
+    transform: scale(1.3);
+}
+
+#email-text {
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+}
+
+.footer-note p{
+    color: white;
+    padding: 20%;
+}
